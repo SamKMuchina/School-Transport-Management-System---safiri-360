@@ -1,0 +1,2010 @@
+/* ============================================================
+   style.css
+   Master Stylesheet - School Transport Management System
+   
+   This file contains ALL styles for the entire system.
+   Every page links to this file. No embedded CSS anywhere.
+   
+   STRUCTURE:
+   1.  Global Reset & Base
+   2.  Color Variables
+   3.  Layout & Dashboard Container
+   4.  Sidebar Navigation
+   5.  Top Header
+   6.  Main Content Area
+   7.  Buttons
+   8.  Forms & Inputs
+   9.  Tables
+   10. Status Badges
+   11. Cards & Stat Cards
+   12. Pagination
+   13. Modals
+   14. Alerts & Messages
+   15. Landing Page (index.php)
+   16. Login Page
+   17. Utility Classes
+   18. Responsive
+============================================================ */
+
+
+/* ============================================================
+   1. GLOBAL RESET & BASE
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #2f3b4f;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: #2196F3;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ============================================================
+   2. COLOR REFERENCE (used throughout)
+
+   Dark Blue    : #2f3b4f  (sidebar, navbar, headings)
+   Yellow       : #FFC107  (active menu, CTA, highlights)
+   Blue         : #2196F3  (primary buttons, links)
+   Green        : #27AE60  (success, active badges)
+   Red          : #E74C3C  (danger, delete)
+   Orange       : #F39C12  (warning)
+   Cyan         : #00BCD4  (info, in-progress)
+   Light Gray   : #f5f5f5  (page background)
+   White        : #ffffff  (cards, panels)
+   Border Gray  : #e0e0e0  (borders, dividers)
+   Text Gray    : #757575  (secondary text)
+============================================================ */
+
+
+/* ============================================================
+   3. LAYOUT & DASHBOARD CONTAINER
+============================================================ */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    margin-left: 240px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   4. SIDEBAR NAVIGATION
+============================================================ */
+
+.sidebar {
+    width: 240px;
+    background-color: #2f3b4f;
+    color: #ffffff;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Sidebar Brand/Logo */
+.sidebar-brand {
+    padding: 1.2rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-brand span {
+    color: #FFC107;
+}
+
+.sidebar-subtitle {
+    font-size: 11px;
+    color: #a0aec0;
+    font-weight: 400;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+/* Menu Sections */
+.menu-section {
+    margin-top: 1rem;
+}
+
+.menu-section-title {
+    padding: 0.4rem 1rem;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #9CA3AF;
+    font-weight: 600;
+}
+
+/* Menu Items */
+.menu-item {
+    display: block;
+    padding: 0.65rem 1rem;
+    color: #E5E7EB;
+    text-decoration: none;
+    font-size: 13px;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-item.active {
+    background-color: #FFC107;
+    color: #2f3b4f;
+    font-weight: 600;
+    border-left-color: #FFC107;
+}
+
+
+/* ============================================================
+   5. TOP HEADER
+============================================================ */
+
+.top-header {
+    background-color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+.header-left h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2f3b4f;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #2f3b4f;
+    font-size: 13px;
+}
+
+.logout-btn {
+    background-color: #E74C3C;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.logout-btn:hover {
+    background-color: #C0392B;
+    text-decoration: none;
+    color: white;
+}
+
+
+/* ============================================================
+   6. MAIN CONTENT AREA
+============================================================ */
+
+.dashboard-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+/* Content Section Card */
+.content-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin-bottom: 1.5rem;
+}
+
+.section-header {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2f3b4f;
+}
+
+.section-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Filter Bar */
+.filter-bar {
+    padding: 0.9rem 1.2rem;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.filter-group label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #757575;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 0.45rem 0.7rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: white;
+    color: #2f3b4f;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+/* Modifier: pushes the Filter/Reset buttons to the bottom of the
+   filter-group column, so they line up with the input boxes next
+   to them (which have a label above, this group doesn't). */
+.filter-group-actions {
+    justify-content: flex-end;
+}
+
+
+/* ============================================================
+   7. BUTTONS
+============================================================ */
+
+.btn {
+    padding: 0.45rem 0.9rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+/* Primary - Blue (View) */
+.btn-primary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1976D2;
+    color: white;
+}
+
+/* Success - Green (Edit/Add) */
+.btn-success {
+    background-color: #27AE60;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #229954;
+    color: white;
+}
+
+/* Danger - Red (Delete) */
+.btn-danger {
+    background-color: #E74C3C;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #C0392B;
+    color: white;
+}
+
+/* Warning - Yellow (Create/Important) */
+.btn-warning {
+    background-color: #FFC107;
+    color: #2f3b4f;
+}
+
+.btn-warning:hover {
+    background-color: #FFB300;
+    color: #2f3b4f;
+}
+
+/* Secondary - Gray */
+.btn-secondary {
+    background-color: #757575;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #616161;
+    color: white;
+}
+
+/* Info - Cyan */
+.btn-info {
+    background-color: #00BCD4;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #0097A7;
+    color: white;
+}
+
+/* Small Button */
+.btn-sm {
+    padding: 0.35rem 0.7rem;
+    font-size: 11px;
+}
+
+/* Large Button */
+.btn-lg {
+    padding: 0.7rem 1.5rem;
+    font-size: 14px;
+}
+
+/* Full Width Button */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+/* ============================================================
+   8. FORMS & INPUTS
+============================================================ */
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #2f3b4f;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #2f3b4f;
+    background-color: white;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Form inside content section */
+.form-section {
+    padding: 1.2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+/* ============================================================
+   9. TABLES
+============================================================ */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table Header */
+.data-table thead {
+    background-color: #f5f5f5;
+}
+
+.data-table th {
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: #2f3b4f;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+/* Table Body */
+.data-table td {
+    padding: 0.65rem 1rem;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #2f3b4f;
+    vertical-align: middle;
+}
+
+/* Zebra striping */
+.data-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f0f4ff;
+}
+
+/* Empty table message */
+.table-empty {
+    text-align: center;
+    padding: 2rem;
+    color: #757575;
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   10. STATUS BADGES
+============================================================ */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* Active / Completed / Success / Paid */
+.badge-success {
+    background-color: #D4EDDA;
+    color: #27AE60;
+}
+
+/* Pending / Warning */
+.badge-warning {
+    background-color: #FFF3CD;
+    color: #F39C12;
+}
+
+/* Cancelled / Error / Failed / Unpaid */
+.badge-danger {
+    background-color: #F8D7DA;
+    color: #E74C3C;
+}
+
+/* In Progress / Info */
+.badge-info {
+    background-color: #D1ECF1;
+    color: #00BCD4;
+}
+
+/* Reported / Secondary */
+.badge-secondary {
+    background-color: #e9ecef;
+    color: #757575;
+}
+
+/* Trip type specific */
+.badge-pickup  { background-color: #D4EDDA; color: #27AE60; }
+.badge-dropoff { background-color: #D1ECF1; color: #00BCD4; }
+
+
+/* ============================================================
+   11. CARDS & STAT CARDS
+============================================================ */
+
+/* Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 3px solid #2196F3;
+}
+
+.stat-card.stat-success { border-left-color: #27AE60; }
+.stat-card.stat-warning { border-left-color: #FFC107; }
+.stat-card.stat-danger  { border-left-color: #E74C3C; }
+.stat-card.stat-info    { border-left-color: #00BCD4; }
+
+.stat-label {
+    font-size: 11px;
+    color: #757575;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2f3b4f;
+    display: block;
+}
+
+/* General Card */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2f3b4f;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: block;
+}
+
+/* Detail Card (for view pages) */
+.detail-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #2f3b4f;
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    color: #555;
+    flex: 1;
+}
+
+/* Action Cards (for dashboards) */
+.action-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #2f3b4f;
+    border: 1px solid #e0e0e0;
+    display: block;
+    transition: all 0.2s;
+}
+
+.action-card:hover {
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-color: #2196F3;
+}
+
+.action-card.primary { background-color: #2196F3; color: white; border-color: #2196F3; }
+.action-card.success { background-color: #27AE60; color: white; border-color: #27AE60; }
+.action-card.warning { background-color: #FFC107; color: #2f3b4f; border-color: #FFC107; }
+.action-card.danger  { background-color: #E74C3C; color: white; border-color: #E74C3C; }
+
+
+/* ============================================================
+   12. PAGINATION
+============================================================ */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #2f3b4f;
+    font-size: 12px;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.pagination a:hover {
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+    text-decoration: none;
+}
+
+.pagination .current-page {
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+    font-weight: 600;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #f0f0f0;
+}
+
+.pagination .dots {
+    border: none;
+    color: #757575;
+}
+
+
+/* ============================================================
+   13. MODALS
+============================================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2f3b4f;
+    display: block;
+}
+
+.modal-subtitle {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.4rem;
+    color: #999;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-footer {
+    margin-top: 1.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+
+/* ============================================================
+   14. ALERTS & MESSAGES
+============================================================ */
+
+.alert {
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 13px;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    background-color: #D4EDDA;
+    color: #27AE60;
+    border-color: #C3E6CB;
+}
+
+.alert-danger {
+    background-color: #F8D7DA;
+    color: #E74C3C;
+    border-color: #F5C6CB;
+}
+
+.alert-warning {
+    background-color: #FFF3CD;
+    color: #F39C12;
+    border-color: #FFEEBA;
+}
+
+.alert-info {
+    background-color: #D1ECF1;
+    color: #00BCD4;
+    border-color: #BEE5EB;
+}
+
+
+/* ============================================================
+   15. LANDING PAGE (index.php)
+============================================================ */
+
+/* Navbar */
+.landing-navbar {
+    background-color: #2f3b4f;
+    color: white;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.landing-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+}
+
+.landing-logo-highlight {
+    color: #FFC107;
+}
+
+.landing-login-btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.landing-login-btn:hover {
+    background-color: #1976D2;
+    text-decoration: none;
+    color: white;
+}
+
+/* Hero */
+.landing-hero {
+    background: linear-gradient(135deg, #2f3b4f 0%, #4a5f7f 100%);
+    color: white;
+    padding: 4rem 3rem 2rem 3rem;
+    text-align: center;
+}
+
+.landing-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.landing-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.landing-hero-highlight {
+    color: #FFC107;
+}
+
+.landing-hero p {
+    font-size: 1rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.landing-hero-btn {
+    background-color: #FFC107;
+    color: #2f3b4f;
+    padding: 0.9rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s;
+    margin-bottom: 3rem;
+}
+
+.landing-hero-btn:hover {
+    background-color: #FFD54F;
+    text-decoration: none;
+    color: #2f3b4f;
+}
+
+.landing-hero-image {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.landing-hero-image img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+}
+
+/* Landing Sections */
+.landing-section {
+    padding: 4rem 3rem;
+}
+
+.landing-section-white { background-color: #ffffff; }
+.landing-section-gray  { background-color: #f8f9fa; }
+.landing-section-blue  { background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%); color: white; text-align: center; }
+
+.landing-section-title {
+    font-size: 1.8rem;
+    color: #2f3b4f;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.landing-section-blue .landing-section-title {
+    color: white;
+}
+
+.landing-title-underline {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #FFC107;
+    margin: 0.5rem auto 2.5rem auto;
+}
+
+/* Steps Grid */
+.landing-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.landing-step-card {
+    background-color: #f8f9fa;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 3px solid #2196F3;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.landing-step-card:hover { transform: translateY(-5px); }
+
+.landing-step-number {
+    width: 45px;
+    height: 45px;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 45px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.landing-step-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2f3b4f;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.landing-step-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Features Grid */
+.landing-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.landing-feature-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    border-left: 4px solid #2196F3;
+    transition: transform 0.3s;
+}
+
+.landing-feature-card:nth-child(2) { border-left-color: #27AE60; }
+.landing-feature-card:nth-child(3) { border-left-color: #FFC107; }
+.landing-feature-card:nth-child(4) { border-left-color: #E74C3C; }
+.landing-feature-card:hover { transform: translateY(-5px); }
+
+.landing-feature-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2f3b4f;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.landing-feature-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Roles Grid */
+.landing-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.landing-role-card {
+    background: linear-gradient(135deg, #2f3b4f 0%, #4a5f7f 100%);
+    color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.landing-role-card:hover { transform: translateY(-5px); }
+
+.landing-role-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFC107;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.landing-role-desc {
+    font-size: 13px;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* CTA Button */
+.landing-cta-btn {
+    background-color: #FFC107;
+    color: #2f3b4f;
+    padding: 1rem 2.5rem;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.landing-cta-btn:hover {
+    background-color: #FFD54F;
+    text-decoration: none;
+    color: #2f3b4f;
+}
+
+/* Footer */
+.landing-footer {
+    background-color: #2f3b4f;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    border-top: 3px solid #FFC107;
+}
+
+.landing-footer p {
+    opacity: 0.9;
+}
+
+
+/* ============================================================
+   16. LOGIN PAGE
+============================================================ */
+
+.login-page-body {
+    background: linear-gradient(135deg, #2f3b4f 0%, #4a5f7f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.login-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-system-title {
+    color: #2f3b4f;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.login-system-title span {
+    color: #FFC107;
+}
+
+.login-subtitle {
+    color: #757575;
+    font-size: 12px;
+    display: block;
+}
+
+.login-btn {
+    background-color: #2f3b4f;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #FFC107;
+    color: #2f3b4f;
+}
+
+.new-user-section {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 12px;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 0.8rem;
+    font-size: 12px;
+}
+
+.modal-btn {
+    background-color: #2f3b4f;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #FFC107;
+    color: #2f3b4f;
+}
+
+.modal-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.modal-error {
+    background-color: #F8D7DA;
+    color: #E74C3C;
+    padding: 0.7rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #F5C6CB;
+    display: none;
+}
+
+.modal-error.show {
+    display: block;
+}
+
+
+/* ============================================================
+   17. UTILITY CLASSES
+============================================================ */
+
+/* Text */
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+.text-left    { text-align: left; }
+.text-muted   { color: #757575; }
+.text-bold    { font-weight: 600; }
+.text-small   { font-size: 11px; }
+.text-primary { color: #2196F3; }
+.text-success { color: #27AE60; }
+.text-danger  { color: #E74C3C; }
+.text-warning { color: #F39C12; }
+
+/* Spacing */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* Display */
+.d-flex        { display: flex; }
+.align-center  { align-items: center; }
+.justify-end   { justify-content: flex-end; }
+.gap-1         { gap: 0.5rem; }
+.gap-2         { gap: 1rem; }
+
+/* View All Link */
+.view-all-link {
+    color: #2196F3;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* No data message */
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: #757575;
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   18. COLLAPSIBLE SIDEBAR TOGGLE BUTTON
+============================================================ */
+
+/* Hamburger toggle button - hidden on desktop */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 0.9rem;
+    left: 1rem;
+    z-index: 200;
+    background-color: #2f3b4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Overlay behind sidebar on mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Active trip card - horizontal layout */
+.active-trip-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2196F3;
+}
+
+.active-trip-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.active-trip-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 120px;
+}
+
+.active-trip-detail-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #757575;
+    font-weight: 600;
+}
+
+.active-trip-detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2f3b4f;
+}
+
+.active-trip-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.active-trip-actions .btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============================================================
+   19. RESPONSIVE
+============================================================ */
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .landing-steps-grid,
+    .landing-features-grid,
+    .landing-roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Show toggle button on mobile */
+    .sidebar-toggle {
+        display: block;
+    }
+
+    /* Sidebar hidden off-screen by default on mobile */
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        width: 240px;
+        height: 100vh;
+        z-index: 150;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+    /* Sidebar visible when open */
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Main wrapper takes full width on mobile */
+    .main-wrapper {
+        margin-left: 0;
+    }
+
+    /* Push header down to clear toggle button */
+    .top-header {
+        padding-left: 3.5rem;
+    }
+
+    /* Stats grid single column */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Filter bar stack vertically */
+    .filter-bar {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        width: 100%;
+    }
+
+    /* Form row stack vertically */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* Table scroll */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Modal full width on mobile */
+    .modal-content {
+        width: 95%;
+        padding: 1.2rem;
+    }
+
+    /* Section header wrap on mobile */
+    .section-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Active trip card stack on very small screens */
+    .active-trip-details {
+        gap: 1rem;
+    }
+
+    .active-trip-actions {
+        flex-wrap: wrap;
+    }
+
+    .active-trip-actions .btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    /* Dashboard content padding */
+    .dashboard-content {
+        padding: 1rem;
+    }
+
+    /* Landing page mobile */
+    .landing-navbar {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .landing-hero {
+        padding: 2rem 1.5rem;
+    }
+
+    .landing-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .landing-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .landing-steps-grid,
+    .landing-features-grid,
+    .landing-roles-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Header right on mobile */
+    .header-right {
+        gap: 0.5rem;
+    }
+
+    .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-header h1 {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+}
+
+/* ============================================================
+   19. HERO CARD (Active Trip - Driver & Attendant Dashboards)
+   Used to make the current active trip the star of the dashboard.
+   Centred layout, gradient background, large route name font.
+============================================================ */
+
+/* Main hero card container - dark gradient background */
+.hero-card {
+    background: linear-gradient(135deg, #2f3b4f 0%, #4a5f7f 100%);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Small label above the route name e.g. "Active Trip" */
+.hero-card .hero-label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+/* Large route name - the most prominent text on the page */
+.hero-card .hero-route {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+/* Row of detail items: Vehicle, Driver/Attendant, Date, Status */
+.hero-card .hero-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Each detail item has a small uppercase label above the value */
+.hero-card .hero-details span strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2px;
+}
+
+/* Centred action buttons row */
+.hero-card .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Empty state shown when no active trip exists */
+.hero-empty {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    color: #999999;
+    margin-bottom: 1.5rem;
+    border: 2px dashed #e0e0e0;
+}
+
+.hero-empty p {
+    font-size: 15px;
+}
+
+/* ============================================================
+   20. REPORT TABS & PAGINATION (Manager Reports Page)
+============================================================ */
+
+/* Tab navigation bar */
+.report-tabs {
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Individual tab link */
+.tab-link {
+    padding: 0.7rem 1rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #757575;
+    margin-bottom: -2px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.tab-link:hover { color: #2196F3; }
+
+/* Active tab - blue underline and text */
+.tab-link.active {
+    color: #2196F3;
+    border-bottom-color: #2196F3;
+    font-weight: 600;
+}
+
+/* Content area below the tabs */
+.tab-panel {
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+    padding: 1.2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+/* Applied to a .tab-panel when its tab is not the active one, instead
+   of an inline style="display:none". Used on pages that render all
+   tab panels and toggle visibility with PHP (attendant/driver reports). */
+.tab-hidden {
+    display: none;
+}
+
+/* Grid of staff name links (Driver/Attendant Performance tabs) */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+/* Individual staff link tile */
+.staff-link {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    background: #f5f5f5;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    color: #2f3b4f;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.staff-link:hover { background: #e7f3ff; }
+
+/* Highlighted when that staff member is currently selected */
+.staff-link.selected {
+    background: #2196F3;
+    color: #ffffff;
+    border-color: #2196F3;
+}
+
+/* Pagination row below results tables */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 12px;
+    color: #757575;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Pagination page number buttons */
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 0.5px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #2f3b4f;
+    background: #ffffff;
+}
+
+.pagination a:hover { background: #f5f5f5; }
+
+/* Currently active page number */
+.pagination span.current-page {
+    background: #2f3b4f;
+    color: #ffffff;
+    border-color: #2f3b4f;
+}
+
+/* Previous/Next when no more pages exist */
+.pagination span.disabled {
+    color: #bbbbbb;
+    background: #f9f9f9;
+}
+
+/* ============================================================
+   TRIP EXECUTION PAGE (start_trip.php - attendant and driver)
+   Added to replace inline style="" attributes on that page.
+============================================================ */
+
+body.trip-execution-page {
+    background: linear-gradient(135deg, #2f3b4f 0%, #4a5f7f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+
+.trip-execution-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.trip-execution-card .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.trip-execution-card .page-header h1 {
+    color: #2f3b4f;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.trip-execution-card .content-area {
+    padding: 1.5rem;
+}
+
+.modal-close-link {
+    font-size: 1.4rem;
+    color: #999;
+    text-decoration: none;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.mt-sm {
+    margin-top: 0.5rem;
+}
+
+.action-btn { padding: 0.35rem 0.9rem; border: none; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.action-btn.pickup { background-color: #E74C3C; color: white; }
+.action-btn.pickup:hover { background-color: #c0392b; }
+.action-btn.pickup.done { background-color: #27AE60; cursor: default; }
+.action-btn.absent-btn { background-color: #757575; color: white; }
+.action-btn.absent-btn:hover { background-color: #616161; }
+.action-btn.absent-btn.done { background-color: #424242; cursor: default; }
+.action-btn:disabled { opacity: 0.65; cursor: not-allowed; }
+
+.trip-info-bar { background-color: #f8f9fa; padding: 0.8rem 1.5rem; border-bottom: 1px solid #e0e0e0; display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 13px; color: #2f3b4f; }
+.trip-info-bar strong { font-weight: 600; }
+
+.modal-card { background: white; border-radius: 10px; max-width: 480px; width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin: 0 auto; }
+.modal-card-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #e0e0e0; }
+.modal-card-header h2 { font-size: 1.1rem; color: #2f3b4f; font-weight: 600; }
+.modal-card-body { padding: 1.5rem; }
+.modal-card-footer { padding: 1rem 1.5rem; border-top: 1px solid #e0e0e0; }
+.radio-group { display: flex; gap: 1.5rem; align-items: center; margin-top: 0.3rem; }
+.radio-group label { font-size: 13px; cursor: pointer; }
+
+.end-trip-area { text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; }
+.info-box { background-color: #E3F2FD; color: #0c5460; padding: 0.8rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 13px; }
+
+/* ============================================================
+   21. SYSTEM REPORTS PAGE (system_reports_view.php)
+   Compact stat cards for the Platform Dashboard tab, and the
+   totals row on the User Activity tab's table.
+============================================================ */
+
+/* Compact stats grid for dashboard tab */
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.compact-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    text-align: center;
+    border-left: 3px solid #2196F3;
+}
+
+.compact-card .label {
+    font-size: 11px;
+    color: #757575;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+}
+
+.compact-card .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2f3b4f;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+/* Total row in the User Activity tab's table */
+.total-row {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+/* Spacing above "Users in <school>" sub-table on the User Activity tab */
+.sub-table-section {
+    margin-top: 2rem;
+}
+
+.sub-table-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+/* ============================================================
+   22. ROUTE ACCORDION (student_assignments.php)
+   Same collapsible route-card look used by manage_route_stops.php.
+============================================================ */
+
+.route-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.route-header {
+    background-color: #f8f9fa;
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.route-header:hover { background-color: #f0f0f0; }
+
+.route-name { font-weight: 600; color: #2f3b4f; font-size: 14px; }
+
+.route-badge {
+    background-color: #2196F3;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 11px;
+    margin-left: 0.5rem;
+}
+
+.route-desc { font-size: 12px; color: #757575; margin-top: 0.2rem; }
+.route-chevron { font-size: 12px; color: #757575; }
+
+.route-body { display: none; padding: 1rem 1.2rem; }
+.route-body.show { display: block; }
+
+/* Spacing above the "Add Stop" button inside a route's body */
+.route-actions { margin-bottom: 1rem; }
+
+/* Small numbered circle showing a stop's position in the route order */
+.stop-order-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: #2f3b4f;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Holds one hidden <select> per route, each pre-filled by PHP with
+   that route's <option> tags. JS copies the matching one's innerHTML
+   into the visible Stop dropdown when a route is picked - no AJAX. */
+.stop-options-source { display: none; }
